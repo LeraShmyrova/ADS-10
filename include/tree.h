@@ -25,7 +25,7 @@ class Tree {
   rroott->ir.push_back(new Node());
   for (size_t j = 0; j < rroott->ir.size(); j++) {
   rroott->ir[j]->vall = chch[j];
-  createTree(rroott->ir[j], chch);
+  createTr(rroott->ir[j], chch);
   }    
   }   
   void Permut(Node* rroott, string str = "") {    
@@ -37,12 +37,12 @@ class Tree {
   if (rroott->vall != '*') {
   str += rroott->vall;
   }
-  for (int j = 0; j < rroott->iter.size(); j++) {
+  for (int j = 0; j < rroott->ir.size(); j++) {
   Permut(rroott->ir[j], str);
   }
   }
  public:
-  str operr[](int j) const {
+  string operr[](int j) const {
   if (j >= iir2.size()) {
   return "";
   }
@@ -51,7 +51,7 @@ class Tree {
   explicit Tr(vector<char> vall) {
   rroott = new Node();
   rroott->vall = '*';
-  createTree(rroott, vall);
+  createTr(rroott, vall);
   Permut(rroott);
   }
 };
