@@ -1,6 +1,9 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TREE_H_
 #define INCLUDE_TREE_H_
+#include <vector>
+#include <string>
+#include <algorithm>
 using std::string;
 using std::vector;
 class Tree {
