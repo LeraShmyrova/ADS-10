@@ -9,10 +9,10 @@ using std::vector;
 class Tree {
  private:
   struct Node {
-  vector<Node*> ir; 
-  char vall; 
+  vector<Node*> ir;
+  char vall;
   };
-  vector<string> iir2;  
+  vector<string> iir2;
   Node* rroott;
   void createTr(Node* rroott, vector<char> chch) {
   if (!chch.size()) {
@@ -26,9 +26,9 @@ class Tree {
   for (size_t j = 0; j < rroott->ir.size(); j++) {
   rroott->ir[j]->vall = chch[j];
   createTr(rroott->ir[j], chch);
-  }    
-  }   
-  void Permut(Node* rroott, string str = "") {    
+  }
+  }
+  void Permut(Node* rroott, string str = "") {
   if (!rroott->ir.size()) {
   str += rroott->vall;
   iir2.push_back(str);
@@ -41,14 +41,15 @@ class Tree {
   Permut(rroott->ir[j], str);
   }
   }
+ 
  public:
-  string operr[](int j) const {
+  string operator[](int j) const {
   if (j >= iir2.size()) {
   return "";
   }
   return iir2[j];
   }
-  explicit Tr(vector<char> vall) {
+  explicit Tree(vector<char> vall) {
   rroott = new Node();
   rroott->vall = '*';
   createTr(rroott, vall);
