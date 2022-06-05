@@ -12,14 +12,14 @@ class Tree {
   vector<Node*> ir;
   char vall;
   };
-  vector<string> iir2;
   Node* rroott;
+  vector<string> iir2;
   void createTr(Node* rroott, vector<char> chch) {
-  if (!chch.size()) {
-  return;
-  }
   if (rroott->vall != '*') {
   chch.erase(find(chch.begin(), chch.end(), rroott->vall));
+  }
+  if (!chch.size()) {
+  return;
   }
   for (size_t j = 0; j < chch.size(); j++)
   rroott->ir.push_back(new Node());
@@ -28,20 +28,20 @@ class Tree {
   createTr(rroott->ir[j], chch);
   }
   }
-  void Permut(Node* rroott, string str = "") {
+  void Permut(Node* rroott, string strr = "") {
+  if (rroott->vall != '*') {
+  strr += rroott->vall;
+  }
   if (!rroott->ir.size()) {
-  str += rroott->vall;
-  iir2.push_back(str);
+  strr += rroott->vall;
+  iir2.push_back(strr);
   return;
   }
-  if (rroott->vall != '*') {
-  str += rroott->vall;
-  }
   for (int j = 0; j < rroott->ir.size(); j++) {
-  Permut(rroott->ir[j], str);
+  Permut(rroott->ir[j], strr);
   }
   }
- 
+
  public:
   string operator[](int j) const {
   if (j >= iir2.size()) {
