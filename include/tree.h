@@ -1,5 +1,55 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TREE_H_
 #define INCLUDE_TREE_H_
-
+using std::string;
+using std::vector;
+class Tree {
+ private:
+  struct Node {
+  vector<Node*> ir; 
+  char vall; 
+  };
+  vector<string> iir2;  
+  Node* rroott;
+  void createTr(Node* rroott, vector<char> chch) {
+  if (!chch.size()) {
+  return;
+  }
+  if (rroott->vall != '*') {
+  chch.erase(find(chch.begin(), chch.end(), rroott->vall));
+  }
+  for (size_t j = 0; j < chch.size(); j++)
+  rroott->ir.push_back(new Node());
+  for (size_t j = 0; j < rroott->ir.size(); j++) {
+  rroott->ir[j]->vall = chch[j];
+  createTree(rroott->ir[j], chch);
+  }    
+  }   
+  void Permut(Node* rroott, string str = "") {    
+  if (!rroott->ir.size()) {
+  str += rroott->vall;
+  iir2.push_back(str);
+  return;
+  }
+  if (rroott->vall != '*') {
+  str += rroott->vall;
+  }
+  for (int j = 0; j < rroott->iter.size(); j++) {
+  Permut(rroott->ir[j], str);
+  }
+  }
+ public:
+  str operr[](int j) const {
+  if (j >= iir2.size()) {
+  return "";
+  }
+  return iir2[j];
+  }
+  explicit Tr(vector<char> vall) {
+  rroott = new Node();
+  rroott->vall = '*';
+  createTree(rroott, vall);
+  Permut(rroott);
+  }
+};
 #endif  // INCLUDE_TREE_H_
